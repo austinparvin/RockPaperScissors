@@ -10,6 +10,20 @@ namespace RockPaperScissors
 
       //  As a user, I should see a welcome message.
       Console.WriteLine("Welcome!");
+
+      Console.WriteLine("Choose: normal, impossible, or easy");
+
+      //  add some validation around user input.
+      var userDifficultyChoice = Console.ReadLine().ToLower();
+      while (userDifficultyChoice != "normal" && userDifficultyChoice != "impossible" && userDifficultyChoice != "easy")
+      {
+        Console.WriteLine("Input invalid!");
+        Console.WriteLine("Choose: normal, impossible, or easy");
+        userDifficultyChoice = Console.ReadLine().ToLower();
+      };
+
+
+
       //  As a user, I should see the options I can pick (i.e., "rock", "paper", "scissor")
       Console.WriteLine("Choose: rock, paper, or scissor");
 
@@ -22,14 +36,53 @@ namespace RockPaperScissors
         userChoice = Console.ReadLine().ToLower();
       };
 
-      //  The computer should randomly decide one of the options.
-      Random r = new Random();
-      string[] choices = {
-        "rock",
-        "paper",
-        "scissor"
-      };
-      var computerChoice = choices[r.Next(choices.Length)];
+      string computerChoice = " ";
+
+      // how to computer answer will differ based on difficulty mode
+      //Normal
+      if (userDifficultyChoice == "normal")
+          {
+            //  The computer should randomly decide one of the options.
+            Random r = new Random();
+            string[] choices = {
+              "rock",
+              "paper",
+              "scissor"
+            };
+            computerChoice = choices[r.Next(choices.Length)];
+          }
+          //Impossible
+          else if (userDifficultyChoice == "impossible")
+          {
+            if (userChoice == "rock")
+            {
+              computerChoice = "paper";
+            }
+            else if (userChoice == "paper")
+            {
+              computerChoice = "scissor";
+            }
+            else if (userChoice == "scissor")
+            {
+              computerChoice = "rock";
+            }
+          }
+          //Easy
+          else if (userDifficultyChoice == "easy")
+          {
+            if (userChoice == "rock")
+            {
+              computerChoice = "scissor";
+            }
+            else if (userChoice == "paper")
+            {
+              computerChoice = "rock";
+            }
+            else if (userChoice == "scissor")
+            {
+              computerChoice = "paper";
+            }
+          }
 
       //  You program should then decide who the winner is;
       if ((computerChoice == "scissor" && userChoice == "rock") || (computerChoice == "rock" && userChoice == "paper") || (computerChoice == "paper" && userChoice == "scissor"))

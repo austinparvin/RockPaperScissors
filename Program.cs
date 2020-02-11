@@ -31,20 +31,25 @@ namespace RockPaperScissors
 
 
         //  As a user, I should see the options I can pick (i.e., "rock", "paper", "scissor")
-        Console.WriteLine("Choose: rock, paper, or scissor");
+        Console.WriteLine("Choose: rock, paper, scissor, lizard, or spock");
 
         //  add some validation around user input.
         var userChoice = Console.ReadLine().ToLower();
-        while (userChoice != "rock" && userChoice != "paper" && userChoice != "scissor")
+        while (userChoice != "rock" && 
+               userChoice != "paper" && 
+               userChoice != "scissor" &&
+               userChoice != "lizard" &&
+               userChoice != "spock")
         {
           Console.WriteLine("Input invalid!");
-          Console.WriteLine("Choose: rock, paper, or scissor");
+          Console.WriteLine("Choose: rock, paper, scissor, lizard, or spock");
           userChoice = Console.ReadLine().ToLower();
         };
 
-        string computerChoice = " ";
+        string computerChoice = "";
 
-        // how to computer answer will differ based on difficulty mode
+        // how the computer answer will differ based on difficulty mode
+
         // Normal
         if (userDifficultyChoice == "normal")
         {
@@ -53,10 +58,13 @@ namespace RockPaperScissors
           string[] choices = {
               "rock",
               "paper",
-              "scissor"
+              "scissor",
+              "spock",
+              "lizard"
             };
           computerChoice = choices[r.Next(choices.Length)];
         }
+
         // Impossible
         else if (userDifficultyChoice == "impossible")
         {
@@ -72,7 +80,16 @@ namespace RockPaperScissors
           {
             computerChoice = "rock";
           }
+          else if (userChoice == "lizard")
+          {
+            computerChoice = "scissor";
+          }
+          else if (userChoice == "spock")
+          {
+            computerChoice = "paper";
+          }
         }
+
         // Easy
         else if (userDifficultyChoice == "easy")
         {
@@ -88,14 +105,29 @@ namespace RockPaperScissors
           {
             computerChoice = "paper";
           }
+          else if (userChoice == "lizard")
+          {
+            computerChoice = "paper";
+          }
+          else if (userChoice == "spock")
+          {
+            computerChoice = "rock";
+          }
         }
 
-        // You program should then decide who the winner is;
-        if ((computerChoice == "scissor" && userChoice == "rock") || (computerChoice == "rock" && userChoice == "paper") || (computerChoice == "paper" && userChoice == "scissor"))
-        {
+        // Your program should then decide who the winner is;
+        if (((computerChoice == "scissor" || computerChoice == "lizard") && userChoice == "rock") || 
+            ((computerChoice == "rock" || computerChoice == "spock") && userChoice == "paper") || 
+            ((computerChoice == "paper" || computerChoice == "lizard") && userChoice == "scissor")||
+            ((computerChoice == "paper" || computerChoice == "spock") && userChoice == "lizard")||
+            ((computerChoice == "rock" || computerChoice == "scissor") && userChoice == "spock")){
           winOrLose = "won";
         }
-        else if ((computerChoice == "rock" && userChoice == "scissor") || (computerChoice == "paper" && userChoice == "rock") || (computerChoice == "scissor" && userChoice == "paper"))
+        else if ((computerChoice == "rock" && (userChoice == "scissor" || userChoice == "lizard")) || 
+                 (computerChoice == "paper" && (userChoice == "rock" || userChoice == "spock")) || 
+                 (computerChoice == "scissor" && (userChoice == "paper" || userChoice == "lizard")) ||
+                 (computerChoice == "lizard" && (userChoice == "spock" || userChoice == "paper")) ||
+                 (computerChoice == "spock" && (userChoice == "rock" || userChoice == "scissor")))
         {
           winOrLose = "lost";
         }

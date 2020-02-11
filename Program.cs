@@ -17,14 +17,14 @@ namespace RockPaperScissors
       {
 
         // Create a way for the user to choose a level of difficulty, normal, impossible, or easy.
-        Console.WriteLine("Choose: normal, impossible, or easy");
+        Console.WriteLine("Choose a difficulty: normal, impossible, or easy");
 
         //  add some validation around user input.
         var userDifficultyChoice = Console.ReadLine().ToLower();
         while (userDifficultyChoice != "normal" && userDifficultyChoice != "impossible" && userDifficultyChoice != "easy")
         {
           Console.WriteLine("Input invalid!");
-          Console.WriteLine("Choose: normal, impossible, or easy");
+          Console.WriteLine("Choose a difficulty: normal, impossible, or easy");
           userDifficultyChoice = Console.ReadLine().ToLower();
         };
 
@@ -35,8 +35,8 @@ namespace RockPaperScissors
 
         //  add some validation around user input.
         var userChoice = Console.ReadLine().ToLower();
-        while (userChoice != "rock" && 
-               userChoice != "paper" && 
+        while (userChoice != "rock" &&
+               userChoice != "paper" &&
                userChoice != "scissor" &&
                userChoice != "lizard" &&
                userChoice != "spock")
@@ -116,15 +116,16 @@ namespace RockPaperScissors
         }
 
         // Your program should then decide who the winner is;
-        if (((computerChoice == "scissor" || computerChoice == "lizard") && userChoice == "rock") || 
-            ((computerChoice == "rock" || computerChoice == "spock") && userChoice == "paper") || 
-            ((computerChoice == "paper" || computerChoice == "lizard") && userChoice == "scissor")||
-            ((computerChoice == "paper" || computerChoice == "spock") && userChoice == "lizard")||
-            ((computerChoice == "rock" || computerChoice == "scissor") && userChoice == "spock")){
+        if (((computerChoice == "scissor" || computerChoice == "lizard") && userChoice == "rock") ||
+            ((computerChoice == "rock" || computerChoice == "spock") && userChoice == "paper") ||
+            ((computerChoice == "paper" || computerChoice == "lizard") && userChoice == "scissor") ||
+            ((computerChoice == "paper" || computerChoice == "spock") && userChoice == "lizard") ||
+            ((computerChoice == "rock" || computerChoice == "scissor") && userChoice == "spock"))
+        {
           winOrLose = "won";
         }
-        else if ((computerChoice == "rock" && (userChoice == "scissor" || userChoice == "lizard")) || 
-                 (computerChoice == "paper" && (userChoice == "rock" || userChoice == "spock")) || 
+        else if ((computerChoice == "rock" && (userChoice == "scissor" || userChoice == "lizard")) ||
+                 (computerChoice == "paper" && (userChoice == "rock" || userChoice == "spock")) ||
                  (computerChoice == "scissor" && (userChoice == "paper" || userChoice == "lizard")) ||
                  (computerChoice == "lizard" && (userChoice == "spock" || userChoice == "paper")) ||
                  (computerChoice == "spock" && (userChoice == "rock" || userChoice == "scissor")))

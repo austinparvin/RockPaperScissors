@@ -1,25 +1,18 @@
-# Default Template for SDG .NET Course
+# Rock Paper Scissors
 
-This is the default template for a simple .NET Core console app. This template has:
+A Rock, Paper, Scissors, Lizard, Spock console app.  This app includes has:
 
-- github integration
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 
-## To push to github
+## Modes
+### Easy
+You will always win no matter what you pick.
 
-To create and push your current code to github, use the task `create-github`.
+### Normal
+You have a fair chance at winning, tying, and losing
 
-How?
+### Impossible
+Based on your choice, the computer will always counter pick you to win. There is no hope to win here.
 
-1. Open your command pallette by using (Mac) `shift + cmd + p` or (Windows) `shift + ctrl + p`
-2. Search and Select `Tasks: Run Task`
-3. Select `create-github` from the dropdown
-
-This will create a new github repo, locally and up on github and also push your current code.
-
-## To turn in your assignment:
-
-after you have created a github repo, completed your project and pushed your code, follow these instructions: https://suncoast.io/handbook/tools/assignment-turn-in/
-
-## PROTIP:
-
-When you are complete with the project and have turned it in to your instructor, update this read me with details about the assignment.
+## App In Action
+![](http://g.recordit.co/XQGzfiI7Vu.gif)

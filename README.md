@@ -1,6 +1,6 @@
 # Rock Paper Scissors
 
-A Rock, Paper, Scissors, Lizard, Spock console app.  This app includes has:
+A Rock, Paper, Scissors, Lizard, Spock console app.  This app includes:
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 

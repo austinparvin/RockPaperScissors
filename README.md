@@ -3,6 +3,7 @@
 A Rock, Paper, Scissors, Lizard, Spock console app.  This app includes:
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+- [IF/ELSE LOGIC](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else)
 
 ## Modes
 ### Easy
